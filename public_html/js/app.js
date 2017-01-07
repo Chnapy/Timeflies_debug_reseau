@@ -198,6 +198,8 @@ function start() {
 			createDecofct(socket)();
 		}
 	});
+	
+	reduce('table');
 }
 
 function launch(event) {
@@ -211,5 +213,15 @@ function launch(event) {
 
 function clearr(table) {
 	$(table).find('tbody').html('');
-	$(table).find('caption button').hide();
+	$(table).find('caption .clear').hide();
+}
+
+function reduce(table) {
+	if($(table).is('.reduced')) {
+		$(table).removeClass('reduced');
+		$(table).find('.reduce').html('-');
+	} else {
+		$(table).addClass('reduced');
+		$(table).find('.reduce').html('+');
+	}
 }

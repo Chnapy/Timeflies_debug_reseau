@@ -114,9 +114,18 @@
 				width: 100%;
 				border-collapse: collapse;
 			}
-			table caption button {
+			table caption .clear {
 				float: right;
 				margin-bottom: 2px;
+				display: none;
+			}
+			table caption .reduce {
+				width: 20px;
+				height: 20px;
+			}
+			.reduced tr th:first-child, .reduced tr th:nth-child(4), .reduced tr th:nth-child(5),
+			.reduced tr td:first-child, .reduced tr td:nth-child(4), .reduced tr td:nth-child(5){
+				display: none;
 			}
 			td, th {
 				min-width: 100px;
@@ -173,7 +182,8 @@
 			<table id="outputEnvoi">
 				<caption>
 					ENVOI
-					<button onclick="clearr(this.parentElement.parentElement)" style="display: none;">clear</button>
+					<button class="reduce" onclick="reduce(this.parentElement.parentElement)">-</button>
+					<button class="clear" onclick="clearr(this.parentElement.parentElement)">clear</button>
 				</caption>
 				<thead><tr><th>event:prefixe</th><th>event:suffixe</th><th>json</th><th>length</th></tr></thead>
 				<tbody></tbody>
@@ -183,7 +193,8 @@
 			<table id="outputReception">
 				<caption>
 					RECEPTION
-					<button onclick="clearr(this.parentElement.parentElement)" style="display: none;">clear</button>
+					<button class="reduce" onclick="reduce(this.parentElement.parentElement)">-</button>
+					<button class="clear" onclick="clearr(this.parentElement.parentElement)">clear</button>
 				</caption>
 				<thead><tr><th>event:prefixe</th><th>event:suffixe</th><th>json</th><th>length</th><th>delta</th></tr></thead>
 				<tbody></tbody>
