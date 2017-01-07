@@ -42,14 +42,18 @@ class ButEnvoi {
 	outputEnvoi() {
 		console.log('Envoi: ' + this.event + ' :');
 		console.log(this.json);
-		$('#outputEnvoi').append('<tr class="' + this.prefix + '"><td>' + this.prefix + '</td><td>' + this.suffix + '</td><td>' + JSON.stringify(this.json) + '</td></tr>');
+		var json_str = JSON.stringify(this.json);
+		$('#outputEnvoi tbody').append('<tr class="' + this.prefix + '"><td>' + this.prefix + '</td><td>' + this.suffix + '</td><td>' + json_str + '</td><td>' + json_str.length + '</td></tr>');
+		$('#outputEnvoi caption button').show();
 	}
 
 	//Appelé depuis socket
 	outputReception(data) {
 		console.log('Reception: ' + this.event + ' :');
 		console.log(data);
-		$('#outputReception').append('<tr class="' + this.prefix + '"><td>' + this.prefix + '</td><td>' + this.suffix + '</td><td>' + JSON.stringify(data) + '</td><td>' + (Date.now() - this.json.sendtime) + '</td></tr>');
+		var json_str = JSON.stringify(data);
+		$('#outputReception tbody').append('<tr class="' + this.prefix + '"><td>' + this.prefix + '</td><td>' + this.suffix + '</td><td>' + JSON.stringify(data) + '</td><td>' + json_str.length + '</td><td>' + (Date.now() - this.json.sendtime) + '</td></tr>');
+		$('#outputReception caption button').show();
 	}
 
 }

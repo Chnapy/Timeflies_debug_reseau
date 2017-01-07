@@ -21,16 +21,23 @@
 				font-size: 13px;
 				background: #F4F4F4;
 			}
+			@media screen and (max-width: 1500px) {
+				body {
+					padding-left: 150px;
+				}
+			}
 			#but {
 				position: fixed;
 				display: inline-block; 
 				width: 10%;
+				min-width: 150px;
 				padding: 8px 0;
 				padding-right: 14px;
 				top: 0;
 				left: 0;
 				bottom: 0;
 				overflow: auto;
+				background: #F0F0F0;
 			}
 			#but .butContent {
 				position: relative;
@@ -72,11 +79,21 @@
 			#but .butContent button {
 				width: 100%;
 				margin-bottom: 8px;
-				border-left-width: 4px;
-				border-left-style: solid;
+				padding-left: 4px;
+				border-left: none;
+				background-position: calc(100% + 4px) bottom;
+				background-size: 200% 100%;
+				transition: all 0.4s ease;
+				outline: 0;
 			}
 			#but .butContent button:hover {
 				opacity: 1;
+			}
+			#but .butContent button:focus {
+				opacity: 1;
+				background-position: left bottom;
+				color: white;
+				border-color: transparent;
 			}
 			h2 {
 				margin-top: 0;
@@ -86,13 +103,20 @@
 				text-transform: uppercase;
 				font-weight: lighter;
 			}
-			table {
+			.tableCont {
 				display: inline-block; 
 				width: 45%;
-				max-width: 45%;
-				border-collapse: collapse;
+				min-width: 400px;
 				padding: 8px;
 				vertical-align: top;
+			}
+			table {
+				width: 100%;
+				border-collapse: collapse;
+			}
+			table caption button {
+				float: right;
+				margin-bottom: 2px;
 			}
 			td, th {
 				min-width: 100px;
@@ -109,24 +133,29 @@
 				border-left-style: solid;
 			}
 			tbody tr {
-				background: #FAFAFA;
+				background: #FAFAFA !important;
 			}
 			tbody tr:hover {
-				background: white;
+				background: white !important;
 			}
 			.connexion {
+				background: linear-gradient(to right, #5050BF 50%, white 50%);
 				border-left-color: #5050BF;
 			}
 			.general {
+				background: linear-gradient(to right, #BF40BF 50%, white 50%);
 				border-left-color: #BF40BF;
 			}
 			.salon {
+				background: linear-gradient(to right, #40BF40 50%, white 50%);
 				border-left-color: #40BF40;
 			}
 			.combat {
+				background: linear-gradient(to right, #BF4040 50%, white 50%);
 				border-left-color: #BF4040;
 			}
 			.mmsalon {
+				background: linear-gradient(to right, #BFBF40 50%, white 50%);
 				border-left-color: #BFBF40;
 			}
 			#adresse {
@@ -140,16 +169,26 @@
 			<div id="adresse"></div>
 			<input class="cb" type="checkbox"/>
 		</div>
-		<table>
-			<caption>ENVOI</caption>
-			<thead><tr><th>event:prefixe</th><th>event:suffixe</th><th>json</th></tr></thead>
-			<tbody id="outputEnvoi"></tbody>
-		</table>
-		<table>
-			<caption>RECEPTION</caption>
-			<thead><tr><th>event:prefixe</th><th>event:suffixe</th><th>json</th><th>delta</th></tr></thead>
-			<tbody id="outputReception"></tbody>
-		</table>
+		<div class="tableCont">
+			<table id="outputEnvoi">
+				<caption>
+					ENVOI
+					<button onclick="clearr(this.parentElement.parentElement)" style="display: none;">clear</button>
+				</caption>
+				<thead><tr><th>event:prefixe</th><th>event:suffixe</th><th>json</th><th>length</th></tr></thead>
+				<tbody></tbody>
+			</table>
+		</div>
+		<div class="tableCont">
+			<table id="outputReception">
+				<caption>
+					RECEPTION
+					<button onclick="clearr(this.parentElement.parentElement)" style="display: none;">clear</button>
+				</caption>
+				<thead><tr><th>event:prefixe</th><th>event:suffixe</th><th>json</th><th>length</th><th>delta</th></tr></thead>
+				<tbody></tbody>
+			</table>
+		</div>
 
 
 		<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
@@ -157,7 +196,7 @@
 		<script src="js/ButEnvoi.js"></script>
 		<script src="js/app.js"></script>
 		<script>
-			window.addEventListener('load', start, false);
+						window.addEventListener('load', start, false);
 		</script>
 	</body>
 </html>

@@ -98,7 +98,7 @@ function onload() {
 		//Salon
 
 		new ButEnvoi(nsp.salon, 'setproprietes', {
-			idmap: 6,
+			idmap: 1,
 			visibilite: 1,
 			typecombat: 1,
 			nbr_equipe: 3,
@@ -120,10 +120,10 @@ function onload() {
 			idperso: 362
 		}, true),
 
-		new ButEnvoi(nsp.salon, 'equipeperso', {
-			idperso: 362,
-			equipe: 2
-		}, true),
+//		new ButEnvoi(nsp.salon, 'equipeperso', {
+//			idperso: 362,
+//			equipe: 2
+//		}, true),
 
 		new ButEnvoi(nsp.salon, 'pret', {
 			pret: true
@@ -207,4 +207,9 @@ function launch(event) {
 			return;
 		}
 	}
+}
+
+function clearr(table) {
+	$(table).find('tbody').html('');
+	$(table).find('caption button').hide();
 }
