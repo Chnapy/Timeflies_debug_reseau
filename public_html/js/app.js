@@ -95,6 +95,16 @@ function onload() {
 			idsalon: 8
 		}, true),
 
+		new ButEnvoi(nsp.mmsalon, 'quittersalon', {
+		}, true),
+
+		new ButEnvoi(nsp.mmsalon, 'supprimersalon', {
+		}, true, true),
+
+		new ButEnvoi(nsp.mmsalon, 'pret', {
+			pret: true
+		}, true),
+
 		//Salon
 
 		new ButEnvoi(nsp.salon, 'setproprietes', {
@@ -106,9 +116,6 @@ function onload() {
 			nbr_persos_total: 26,
 			nbr_eq_persos_joueur: 2,
 			nbr_eq_persos_classe: 3
-		}, true),
-
-		new ButEnvoi(nsp.salon, 'quittersalon', {
 		}, true),
 
 		new ButEnvoi(nsp.salon, 'ajoutperso', {
@@ -124,10 +131,6 @@ function onload() {
 //			idperso: 362,
 //			equipe: 2
 //		}, true),
-
-		new ButEnvoi(nsp.salon, 'pret', {
-			pret: true
-		}, true),
 
 		//Combat
 

@@ -11,17 +11,22 @@
 
 class ButEnvoi {
 
-	constructor(prefix, event, json, reponse_attendue) {
+	constructor(prefix, event, json, reponse_attendue, nohtml) {
 		this.prefix = prefix;
 		this.event = prefix + "_" + event;
 		this.suffix = event;
 		this.json = json;
 		this.reponse_attendue = reponse_attendue;
 		this.nsp = nsp;
+		this.nohtml = nohtml;
 	}
 
 	getHTML() {
-		return "<button class='" + this.prefix + "' title='" + this.event + "' onclick='launch(\"" + this.event + "\")'>" + this.suffix + "</button>";
+		if (this.nohtml) {
+			return "";
+		} else {
+			return "<button class='" + this.prefix + "' title='" + this.event + "' onclick='launch(\"" + this.event + "\")'>" + this.suffix + "</button>";
+		}
 	}
 
 	preparer() {
