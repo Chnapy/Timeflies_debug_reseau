@@ -119,7 +119,7 @@ function onload() {
 		}, true),
 
 		new ButEnvoi(nsp.salon, 'ajoutperso', {
-			idperso: 362,
+			idperso: 1,
 			equipe: 1
 		}, true),
 
@@ -133,6 +133,9 @@ function onload() {
 //		}, true),
 
 		//Combat
+
+		new ButEnvoi(nsp.combat, 'map', {
+		}, true, true),
 
 		new ButEnvoi(nsp.combat, 'chargementfini', {
 		}, true),
